@@ -16,7 +16,7 @@ for item in item_divs:
   alltext = item.findAll('h3')
   first_line = alltext[0]
   album = alltext[1].text
-  #print(first_line)
+
   artist = first_line.findAll('b')
   artist = artist[0].text
 
