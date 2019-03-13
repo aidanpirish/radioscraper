@@ -13,4 +13,15 @@ soup = BeautifulSoup(response.data, 'html.parser')
 item_divs = soup.findAll("div", {"class": "playlistitem-name"})
 
 for item in item_divs:
-  print(item)
+  alltext = item.findAll('h3')
+  first_line = alltext[0]
+  album = alltext[1].text
+  #print(first_line)
+  artist = first_line.findAll('b')
+  artist = artist[0].text
+
+  allstr = alltext[0].text.strip()
+  line_index = allstr.find('|')
+  song = allstr[line_index+2:]
+  
+  print("artist:", artist, "song:", song, "album:", album)
